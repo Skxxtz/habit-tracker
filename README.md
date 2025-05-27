@@ -22,7 +22,7 @@ and monthly habits. The app focuses on fast navigation with Vim-like key binds.
 git clone https://github.com/Skxxtz/habit-tracker.git
 ```
 
-## Usage
+## 🎛️ Usage
 
 1. Navigate to the habit-tracker directory
 
@@ -36,7 +36,7 @@ cd /path/to/habit-tracker
 python main.py
 ```
 
-You've now successfully started the app.
+🎉 You've now successfully started the app.
 
 ### Binds
 
