@@ -8,7 +8,7 @@ and monthly habits. The app focuses on fast navigation with Vim-like key binds.
     </picture>
 </div>
 
-## Setup
+## 🚀 Getting Started
 
 ### Dependencies
 
