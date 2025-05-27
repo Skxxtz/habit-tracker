@@ -1,3 +1,7 @@
+# Habit Tracker
+A lightweight, terminal-based habit tracking application build with Python. It
+allows users to keep track of different habit types, including daily, weekly,
+and monthly habits. The app focuses on fast navigation with Vim-like key binds.
 <div>
     <picture>
         <img alt="application screenshot linux" height="250" src="assets/sceenshot.png">
