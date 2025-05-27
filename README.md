@@ -72,5 +72,5 @@ There are several key binds used to navigate the habit tracker.<br>
 To run unit tests, the following command should be run:
 
 ```bash
-python -m unittest tests/habit.py
+python -m unittest discover tests/
 ```
