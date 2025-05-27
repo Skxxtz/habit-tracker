@@ -1,40 +1,55 @@
-# Planing
+# Habit Tracker
 
-## Componentes
+## Setup
 
-### Classes
+This application uses only built-in python libraries.<br>
+**DEPENDENCIES:**
 
-#### Habit
+- [Python](https://docs.python.org/3/using/index.html)
 
-Fields:
+### Installation
+1. Clone the directory
+```bash
+git clone https://github.com/Skxxtz/habit-tracker.git
+```
 
-- longest streak: u32
-- current streak: u32
-- interval: String (either month or day)
-- start: date (if start.[interval] != now.[interval] => update)
-- history (list of bool?)
-- completed: bool
+## Usage
 
-#### User
+1. Navigate to the habit-tracker directory
+```bash
+cd /path/to/habit-tracker
+```
+2. Use python to run `main.py`
+```bash
+python main.py
+```
+You've now successfully started the app.
 
-Fields:
+### Binds
+There are several key binds used to navigate the habit tracker.<br>
 
-- longest streak: Habit
-- longest streak habit - type habit
+**Navigation:**
+| Bind | Function |
+| -------------- | --------------- |
+| `j` | Navigate down |
+| `↓` | Navigate down |
+| `k` | Navigate up |
+| `↑` | Navigate up |
+| `q` | Quit |
+| `ctrl + c` | Quit |
+| `ctrl + l` | Home |
+| `h` | Show help |
 
-### Workflows
+**Habit Management:**
+| Bind | Function |
+| -------------- | --------------- |
+| `c` | Complete habit |
+| `r` | Remove habit |
+| `o` | Add habit |
+| `f` | Filter habits |
+| `s` | Sort habits |
+| `I` | Show app-wide statistics |
 
-#### Saving
 
-- Using json for habits into habits.json
-- Using json for user into user.json
 
-#### Management
 
-- Add habit
-- Remove habit
-- Edit habit
-
-#### Analytics
-
--
