@@ -1,6 +1,6 @@
 ## Setup
 
-<div align="center" style="text-align:center; border-radius:10px;">
+<div>
   <picture>
     <img alt="application screenshot linux" height="250" src="assets/sceenshot.png">
   </picture>
