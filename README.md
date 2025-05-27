@@ -1,4 +1,5 @@
 # Habit Tracker
+
 A lightweight, terminal-based habit tracking application build with Python. It
 allows users to keep track of different habit types, including daily, weekly,
 and monthly habits. The app focuses on fast navigation with Vim-like key binds.
@@ -65,3 +66,11 @@ There are several key binds used to navigate the habit tracker.<br>
 | `f` | Filter habits |
 | `s` | Sort habits |
 | `I` | Show app-wide statistics |
+
+## 🧪 Tests
+
+To run unit tests, the following command should be run:
+
+```bash
+python -m unittest tests/habit.py
+```
