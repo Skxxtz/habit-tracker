@@ -20,12 +20,12 @@ class TestHabit(unittest.TestCase):
         habit.check_interval()
         habit.calculate_streaks()
 
-        should_be = [0 for _ in range(19)]
+        should_be = [0 for _ in range(20)]
         self.assertEqual(habit.history, [1] + should_be)
         self.assertEqual(habit.longest_streak, 1)
         self.assertEqual(habit.current_streak, 0)
-        self.assertEqual(habit.current_negative, 19)
-        self.assertEqual(habit.longest_negative, 19)
+        self.assertEqual(habit.current_negative, 20)
+        self.assertEqual(habit.longest_negative, 20)
 
         """
         Test Case:
@@ -51,15 +51,19 @@ class TestHabit(unittest.TestCase):
         Checks daily task. Last n intervals were completed with regular interruptions at `interrupt`.
         """
         yesterday = TODAY - timedelta(days=1)
-        n = 50
-        interrupt = 25
+        n = 100
+        interrupt = 20
         should_be = [1 for _ in range(n)]
 
         habit = BaseHabit.create("Test Habit", "daily")
         for i in range(n):
-            habit.completed = 1 if (i + 1) % interrupt != 0 else 0
             habit.start = yesterday
             habit.check_interval()
+            if (i+1) % interrupt != 0:
+                habit.toggle_completed()
+        habit.calculate_streaks()
+        print(habit.inspect_self())
+
         self.assertEqual(habit.longest_streak, min(interrupt - 1, n))
         self.assertEqual(habit.current_streak, n % interrupt)
         self.assertEqual(habit.longest_negative, 1)
