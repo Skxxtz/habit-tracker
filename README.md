@@ -1,9 +1,7 @@
 ## Setup
 <div align="center" style="text-align:center; border-radius:10px;">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/logo-light.svg">
-    <img alt="application screenshot linux" height="250" src="assets/screenshot.png">
+    <img alt="application screenshot linux" height="250" src="assets/sceenshot.png">
   </picture>
 </div>
 > Application screenshot on Linux
