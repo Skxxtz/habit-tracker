@@ -1,10 +1,10 @@
-## Setup
-
 <div>
-  <picture>
-    <img alt="application screenshot linux" height="250" src="assets/sceenshot.png">
-  </picture>
+    <picture>
+        <img alt="application screenshot linux" height="250" src="assets/sceenshot.png">
+    </picture>
 </div>
+
+## Setup
 
 ### Dependencies
 
