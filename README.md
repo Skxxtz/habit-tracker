@@ -66,6 +66,7 @@ There are several key binds used to navigate the habit tracker.<br>
 | `f` | Filter habits |
 | `s` | Sort habits |
 | `I` | Show app-wide statistics |
+| `i` | Show statistics on current selection |
 
 ## 🧪 Tests
 

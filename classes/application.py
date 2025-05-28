@@ -5,6 +5,7 @@ import json
 from classes.habit import BaseHabit
 from classes.filter import Filter
 from helpers.text import underline, bold
+from ui.classes.graph import Graph
 
 
 class App:
@@ -64,7 +65,7 @@ class App:
             index = f"{i:02d}".ljust(index_len)
             print(f"{index}{done}{item.name.ljust(max_len)}{item.ui_history(max_rows = 10)}")
 
-    def inspect_self(self)->None:
+    def inspect_self(self, use_filter: bool)->None:
         '''
         This method displays analytical information about all habits.
 
@@ -74,35 +75,39 @@ class App:
         Returns:
             None
         '''
+        values = self.filter.tmp if use_filter else self.filter.base
 
-        if len(self.filter.tmp) == 0:
+        if len(values) == 0:
             return
 
-        current_streak = max(self.filter.tmp.values(), key=lambda obj: obj.current_streak)
-        longest_streak = max(self.filter.tmp.values(), key=lambda obj: obj.longest_streak)
-        current_negative = max(self.filter.tmp.values(), key=lambda obj: obj.current_negative)
-        longest_negative = max(self.filter.tmp.values(), key=lambda obj: obj.longest_negative)
+        current_streak = max(values.values(), key=lambda obj: obj.current_streak)
+        longest_streak = max(values.values(), key=lambda obj: obj.longest_streak)
+        current_negative = max(values.values(), key=lambda obj: obj.current_negative)
+        longest_negative = max(values.values(), key=lambda obj: obj.longest_negative)
 
 
+        print()
         if current_streak.current_streak > 0:
-            print(f"\n{underline('Currently Best Streak')}")
+            print(f"{underline('Currently Best Streak')}")
             print(current_streak.name)
-            print(f"Current Streak: {current_streak.current_streak}")
+            print(f"Current Streak: {current_streak.current_streak}", end="\n\n")
 
         if longest_streak.longest_streak > 0:
-            print(f"\n{underline('Longest Streak Overall')}")
+            print(f"{underline('Longest Streak Overall')}")
             print(longest_streak.name)
-            print(f"Longest Streak: {longest_streak.longest_streak}")
+            print(f"Longest Streak: {longest_streak.longest_streak}", end="\n\n")
 
         if current_negative.current_negative > 0:
-            print(f"\n{underline('Currently Worst Streak')}")
+            print(f"{underline('Currently Worst Streak')}")
             print(current_negative.name)
-            print(f"Current Negative: {current_negative.current_negative}")
+            print(f"Current Negative: {current_negative.current_negative}", end="\n\n")
 
         if longest_negative.longest_negative > 0:
-            print(f"\n{underline('Worst Streak Overall')}")
+            print(f"{underline('Worst Streak Overall')}")
             print(longest_negative.name)
-            print(f"Longest Negative: {longest_negative.longest_negative}")
+            print(f"Longest Negative: {longest_negative.longest_negative}", end="\n\n")
+
+        Graph(values)
 
     @classmethod
     def get_or_init(cls, path)->"App":

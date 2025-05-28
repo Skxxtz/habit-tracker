@@ -19,8 +19,8 @@ class BaseHabit(ABC):
     interval: str
     start: datetime
     history: List[int]
-    before_change: tuple[int, int, int, int]
 
+    # Formatting
     num_intervals: int
 
     def __init__(self, name: str, interval: str) -> None:
@@ -32,7 +32,6 @@ class BaseHabit(ABC):
         self.current_streak = 0
         self.longest_negative = 1
         self.current_negative = 1
-        self.before_change = (0, 0, 1, 1)
         self.history = []
 
         self.reset()

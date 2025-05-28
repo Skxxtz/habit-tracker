@@ -218,9 +218,11 @@ class UI:
                             self.app.filter.filter_completed(False)
                         case "All":
                             self.app.filter.apply_filter("all")
+                        case "Daily" | "Weekly" | "Monthly":
+                            self.app.filter.apply_filter(option)
                     UiHelpers.draw_list(self.app, self.index)
 
-                options = ["All", "Completed", "Not Completed"]
+                options = ["All", "Completed", "Not Completed", "Daily", "Weekly", "Monthly"]
                 self.submenu = Submenu(options, ["Filter"], on_confirm)
 
             case "s":
@@ -254,10 +256,16 @@ class UI:
                 self.submenu = Submenu(options, ["Sorting"], on_confirm)
 
             case "I":
-                self.app.inspect_self()
+                UiHelpers.clear_term()
+                self.app.inspect_self(False)
+
+            case "i":
+                UiHelpers.clear_term()
+                self.app.inspect_self(True)
 
             case "CLEAR_SCREEN":
-                UiHelpers.draw_list(self.app, self.index)
+                # UiHelpers.draw_list(self.app, self.index)
+                UiHelpers.clear_term()
 
             case "QUIT":
                 return True
@@ -295,7 +303,8 @@ class UiHelpers:
             "c": "Toggle completion for this habit",
             "o": "Add new habit",
             "r": "Remove this habit",
-            "i": "Inspect current habit",
+            "i": "Inspect current filter selection",
+            "I": "Display app-wide statistics",
             # Filter/Sorter
             "s": "Sort the habits",
             "f": "Filter the habits",

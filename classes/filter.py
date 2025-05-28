@@ -1,5 +1,6 @@
 from typing import Optional
 from classes.habit import BaseHabit
+from helpers.log import log
 
 
 class Filter:
@@ -57,6 +58,7 @@ class Filter:
     # FILTERS
     def apply_filter(self, filter: Optional[str] = None):
         filter = filter or self.filter
+        filter = filter.lower()
         match filter:
             case "all":
                 self.tmp = self.base
