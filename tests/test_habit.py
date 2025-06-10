@@ -1,6 +1,6 @@
 import unittest
 from datetime import timedelta
-from classes.habit import BaseHabit
+from classes.habit import BaseHabit, DailyHabit, MonthlyHabit, WeeklyHabit
 from constants import TODAY
 
 # Run instructions:
@@ -8,7 +8,36 @@ from constants import TODAY
 
 
 class TestHabit(unittest.TestCase):
+    def test_create(self):
+        '''
+        Test Case:
+        Tests creation for daily habits
+        '''
+        habit = BaseHabit.create("Test Habit", "daily")
+        should_be = DailyHabit("Test Habit")
+        self.assertEqual(habit, should_be)
+
+        '''
+        Test Case:
+        Tests creation for weekly habits
+        '''
+        habit = BaseHabit.create("Test Habit", "weekly")
+        should_be = WeeklyHabit("Test Habit")
+        self.assertEqual(habit, should_be)
+
+        '''
+        Test Case:
+        Tests creation for monthly habits
+        '''
+        habit = BaseHabit.create("Test Habit", "monthly")
+        should_be = MonthlyHabit("Test Habit")
+        self.assertEqual(habit, should_be)
     def test_check_interval(self):
+        '''
+        This method tests the workflow for the habit.check_interval, which also contains a nested call to the habit.insert_missed method.
+        Thereby, it tests the entire workflow for checking and adding any missed intervals to the habit history.
+        '''
+
         """
         Test Case:
         Checks daily task. Last interval was completed, 19 missed afterwards
