@@ -9,41 +9,60 @@ from constants import TODAY
 
 class TestHabit(unittest.TestCase):
     def test_eq(self):
+        """
+        This method tests the habit.__eq__ method
+        """
         habit = BaseHabit.create("Test Habit", "monthly")
         habit1 = BaseHabit.create("Test Habit", "monthly")
 
         self.assertEqual(habit, habit1)
 
     def test_create(self):
-        '''
+        """
+        This method tests the habit.toggle_completed method
+        """
+
+        """
         Test Case:
         Tests creation for daily habits
-        '''
+        """ 
+
         habit = BaseHabit.create("Test Habit", "daily")
         should_be = DailyHabit("Test Habit")
         self.assertEqual(habit, should_be)
 
-        '''
+        """
         Test Case:
         Tests creation for weekly habits
-        '''
+        """
         habit = BaseHabit.create("Test Habit", "weekly")
         should_be = WeeklyHabit("Test Habit")
         self.assertEqual(habit, should_be)
 
-        '''
+        """
         Test Case:
         Tests creation for monthly habits
-        '''
+        """
         habit = BaseHabit.create("Test Habit", "monthly")
         should_be = MonthlyHabit("Test Habit")
         self.assertEqual(habit, should_be)
         
+    def test_toggle_completed(self):
+        """
+        This method tests the habit.toggle_completed method
+        """
+        habit = BaseHabit.create("Test Habit", "monthly")
+        self.assertEqual(habit.completed, 0)
+        self.assertEqual(habit.history[-1], 0)
+        habit.toggle_completed()
+        self.assertEqual(habit.completed, 1)
+        self.assertEqual(habit.history[-1], 1)
+
     def test_check_interval(self):
-        '''
+        """
         This method tests the workflow for the habit.check_interval, which also contains a nested call to the habit.insert_missed method.
         Thereby, it tests the entire workflow for checking and adding any missed intervals to the habit history.
-        '''
+        """
 
         """
         Test Case:
@@ -105,6 +124,10 @@ class TestHabit(unittest.TestCase):
         self.assertEqual(habit.longest_negative, 1)
 
     def test_serialization(self):
+        """
+        This method tests the habit.from_dict and habit.to_dict methods
+        """
+
         """
         Test Case:
         Tests serialization and deserialization
