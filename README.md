@@ -39,6 +39,15 @@ python main.py
 
 🎉 You've now successfully started the app.
 
+### Tips
+
+You can show analytics for the current selection. This allows you to show statistics only for the habits that comply with the <filter>.<br>
+Example:
+
+1. Press `f` and navigate to "daily"
+2. Confirm your selection by pressing `return`
+3. Press `I` (shift + i) to show statistics for your daily habits
+
 ### Binds
 
 There are several key binds used to navigate the habit tracker.<br>
