@@ -8,6 +8,12 @@ from constants import TODAY
 
 
 class TestHabit(unittest.TestCase):
+    def test_eq(self):
+        habit = BaseHabit.create("Test Habit", "monthly")
+        habit1 = BaseHabit.create("Test Habit", "monthly")
+
+        self.assertEqual(habit, habit1)
+
     def test_create(self):
         '''
         Test Case:
@@ -32,6 +38,7 @@ class TestHabit(unittest.TestCase):
         habit = BaseHabit.create("Test Habit", "monthly")
         should_be = MonthlyHabit("Test Habit")
         self.assertEqual(habit, should_be)
+        
     def test_check_interval(self):
         '''
         This method tests the workflow for the habit.check_interval, which also contains a nested call to the habit.insert_missed method.
