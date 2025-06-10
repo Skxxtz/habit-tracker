@@ -68,7 +68,7 @@ class UI:
                     return
 
                 if ch == b"\x1b":
-                    return "ESC"
+                    return "ESCAPE"
                 elif ch == b"\xe0":  # Special key prefix
                     ch2 = msvcrt.getch()
                     if ch2 == b"H":
@@ -269,7 +269,6 @@ class UI:
                 self.app.inspect_self(True)
 
             case "CLEAR_SCREEN":
-                # UiHelpers.draw_list(self.app, self.index)
                 UiHelpers.clear_term()
 
             case "QUIT":
@@ -280,7 +279,7 @@ class UI:
                 UiHelpers.print_help()
             case _:
                 if DEBUG:
-                    print(f"Unknown command: {action}")
+                    print(f"Key is not bound: {action}")
                 pass
 
 

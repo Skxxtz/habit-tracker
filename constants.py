@@ -9,10 +9,7 @@ SHOW_CURSOR = "\033[?25h"
 CLEAR_SCREEN = "\033[2J"
 CURSOR_HOME = "\033[H"
 
-COMPLETED = "✓"
-INCOMPLETE = "✗"
-
-DATEFORMAT = "%d-%m-%Y"
 
 # Globalize for efficiency since it won't change
 TODAY = datetime.today()
+DATEFORMAT = "%d-%m-%Y"

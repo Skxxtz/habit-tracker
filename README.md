@@ -47,13 +47,10 @@ There are several key binds used to navigate the habit tracker.<br>
 
 | Bind | Function |
 | -------------- | --------------- |
-| `j` | Navigate down |
-| `↓` | Navigate down |
-| `k` | Navigate up |
-| `↑` | Navigate up |
-| `q` | Quit |
-| `ctrl + c` | Quit |
-| `ctrl + l` | Home |
+| `j` or `↓` | Navigate down |
+| `k` or `↑`| Navigate up |
+| `q` or `ctrl + c`| Quit |
+| `ctrl + l` | Clear Screen |
 | `h` | Show help |
 
 **Habit Management:**
@@ -65,8 +62,8 @@ There are several key binds used to navigate the habit tracker.<br>
 | `o` | Add habit |
 | `f` | Filter habits |
 | `s` | Sort habits |
+| `i` | Show statistics for the current filter selection |
 | `I` | Show app-wide statistics |
-| `i` | Show statistics on current selection |
 
 ## 🧪 Tests
 
@@ -75,3 +72,5 @@ To run unit tests, the following command should be run:
 ```bash
 python -m unittest discover tests/
 ```
+
+Tests exists for the Habit and App class and by extension also the Filter class.
