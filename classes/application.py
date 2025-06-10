@@ -24,7 +24,7 @@ class App:
         data["longest_streak"] = self.longest_streak or None
 
         with open(self.save_path, "w+") as file:
-            json.dump(data,file)
+            json.dump(data, file)
 
     def add_habit(self, name: str, interval: str)->None:
         habit = BaseHabit.create(name, interval)
@@ -110,7 +110,7 @@ class App:
         Graph(values)
 
     @classmethod
-    def get_or_init(cls, path)->"App":
+    def get_or_init(cls, path) -> "App":
         '''
         This method initializes an app either using provied savedata or from scratch
         '''

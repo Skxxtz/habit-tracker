@@ -2,10 +2,9 @@ import unittest
 from datetime import timedelta
 from classes.habit import BaseHabit, DailyHabit, MonthlyHabit, WeeklyHabit
 from constants import TODAY
-from math import floor
 
 # Run instructions:
-# python -m unittest tests/habit.py
+# python -m unittest tests/test_habit.py
 
 
 """
@@ -242,7 +241,7 @@ class TestHabit(unittest.TestCase):
         self.assertEqual(habit.current_streak, n % interrupt)
         self.assertEqual(habit.longest_negative, 1)
 
-    def test_check_interval_weekly(self):
+    def test_check_interval_monthly(self):
         """
         Tested methods:
         1. MonthlyHabit.check_interval

@@ -1,7 +1,5 @@
 from typing import Optional
 from classes.habit import BaseHabit
-from helpers.log import log
-
 
 class Filter:
     base: dict[str, BaseHabit]
