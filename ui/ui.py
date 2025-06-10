@@ -174,6 +174,7 @@ class UI:
                 if not selected:
                     return
                 selected.toggle_completed()
+                self.app.filter.apply_filter()
                 UiHelpers.draw_list(self.app, self.index)
                 self.app.save()
 
@@ -213,9 +214,9 @@ class UI:
                 def on_confirm(option: str):
                     match option:
                         case "Completed":
-                            self.app.filter.filter_completed(True)
+                            self.app.filter.apply_filter("completed")
                         case "Not Completed":
-                            self.app.filter.filter_completed(False)
+                            self.app.filter.apply_filter("incomplete")
                         case "All":
                             self.app.filter.apply_filter("all")
                         case "Daily" | "Weekly" | "Monthly":
@@ -230,17 +231,21 @@ class UI:
                 def on_confirm(option: str):
                     match option:
                         case "Name ↓":
-                            self.app.filter.sort_by_name()
+                            self.app.filter.apply_sorting("name")
                         case "Name ↑":
-                            self.app.filter.sort_by_name(True)
+                            self.app.filter.apply_sorting("name_desc")
                         case "Completion ↓":
-                            self.app.filter.sort_by_completion(True)
+                            self.app.filter.apply_sorting("completion_desc")
                         case "Completion ↑":
-                            self.app.filter.sort_by_completion()
+                            self.app.filter.apply_sorting("completion")
                         case "Streak ↓":
-                            self.app.filter.sort_by_streak(True)
+                            self.app.filter.apply_sorting("longest_streak_desc")
                         case "Streak ↑":
-                            self.app.filter.sort_by_streak()
+                            self.app.filter.apply_sorting("longest_streak")
+                        case "Completion Rate ↓":
+                            self.app.filter.apply_sorting("comp_rate_desc")
+                        case "Completion Rate ↑":
+                            self.app.filter.apply_sorting("comp_rate")
                     UiHelpers.draw_list(self.app, self.index)
 
                 options = [
@@ -268,6 +273,7 @@ class UI:
                 UiHelpers.clear_term()
 
             case "QUIT":
+                UiHelpers.clear_term()
                 return True
             case "h":
                 UiHelpers.clear_term()
