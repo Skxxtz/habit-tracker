@@ -7,7 +7,7 @@ from typing import Optional
 
 from classes.application import App
 from constants import CLEAR_SCREEN, CURSOR_HOME, DEBUG, HIDE_CURSOR, SHOW_CURSOR
-from helpers.text import bold, bold_underline
+from helpers.text import bold, bold_underline, blue
 from ui.classes.submenu import ConfirmSubmenu, Submenu
 
 # Necessary imports for windows and unix
@@ -399,4 +399,4 @@ class UiHelpers:
             habit.inspect_self()
 
         print(f"\n  Use ↑/↓ to navigate", flush=True)
-        print(f"  Or press 'h' to show more commands", flush=True)
+        print(f"  Or press \"{blue('h')}\" to show more commands", flush=True)

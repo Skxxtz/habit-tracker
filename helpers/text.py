@@ -5,6 +5,7 @@ colors = {
     "red": "31",
     "green": "32",
     "yellow": "33",
+    "blue":  "34",
     "underline": "4",
     "bold": "1",
 }
@@ -26,6 +27,8 @@ def green(string: str) -> str:
 def yellow(string: str) -> str:
     return text_format(["yellow"], string)
 
+def blue(string: str) -> str:
+    return text_format(["blue"], string)
 
 def underline(string: str) -> str:
     return text_format(["underline"], string)
