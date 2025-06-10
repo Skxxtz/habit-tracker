@@ -52,7 +52,7 @@ class BaseHabit(ABC):
         return (
             f"Habit: {self.name}\n"
             f"Interval: {self.interval}\n"
-            f"completed: {self.completed}\n"
+            f"Completed: {self.completed}\n"
             f"Current Streak: {self.current_streak}\n"
             f"Longest Streak: {self.longest_streak}"
         )
