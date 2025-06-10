@@ -13,6 +13,15 @@ class Filter:
         self.filter = "all"
 
     def populate(self, habits: dict[str, BaseHabit])->None:
+        """
+        This method sets the base and temporary to the new provided habit dict
+
+        Args:
+            habits dict[str, BaseHabit]: New habits
+
+        Returns:
+            None
+        """
         self.base = habits
         self.tmp = habits
 
