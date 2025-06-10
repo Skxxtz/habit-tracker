@@ -10,7 +10,8 @@ from constants import TODAY
 class TestHabit(unittest.TestCase):
     def test_eq(self):
         """
-        This method tests the habit.__eq__ method
+        Tested methods:
+        1. habit.__eq__
         """
         habit = BaseHabit.create("Test Habit", "monthly")
         habit1 = BaseHabit.create("Test Habit", "monthly")
@@ -19,7 +20,8 @@ class TestHabit(unittest.TestCase):
 
     def test_create(self):
         """
-        This method tests the habit.toggle_completed method
+        Tested methods:
+        1. habit.toggle_completed 
         """
 
         """
@@ -49,7 +51,8 @@ class TestHabit(unittest.TestCase):
         
     def test_toggle_completed(self):
         """
-        This method tests the habit.toggle_completed method
+        Tested methods:
+        1. habit.toggle_completed 
         """
         habit = BaseHabit.create("Test Habit", "monthly")
         self.assertEqual(habit.completed, 0)
@@ -60,8 +63,12 @@ class TestHabit(unittest.TestCase):
 
     def test_check_interval(self):
         """
-        This method tests the workflow for the habit.check_interval, which also contains a nested call to the habit.insert_missed method.
-        Thereby, it tests the entire workflow for checking and adding any missed intervals to the habit history.
+        Tested methods:
+        1. habit.check_interval
+        2. habit.insert_missed
+        3. habit.calculate_streaks
+
+        This method tests the workflow for calculating missed intervals and streaks
         """
 
         """
@@ -125,7 +132,9 @@ class TestHabit(unittest.TestCase):
 
     def test_serialization(self):
         """
-        This method tests the habit.from_dict and habit.to_dict methods
+        Tested methods:
+        1. habit.from_dict
+        2. habit.to_dict
         """
 
         """
